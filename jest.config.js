@@ -1,0 +1,27 @@
+module.exports = {
+  preset: "ts-jest",
+  testEnvironment: "node",
+  roots: ["<rootDir>/src"],
+  testMatch: ["**/__tests__/**/*.test.ts"],
+  transform: {
+    "^.+\\.ts$": "ts-jest",
+  },
+  collectCoverageFrom: [
+    "src/**/*.ts",
+    "!src/**/*.d.ts",
+    "!src/__tests__/**",
+    "!src/cli.ts",
+    "!src/cli-commands.ts",
+    "!src/debug-credentials.ts",
+    "!src/index.ts",
+  ],
+  coverageDirectory: "coverage",
+  coverageReporters: ["text", "lcov"],
+  setupFilesAfterEnv: ["<rootDir>/src/__tests__/setup.ts"],
+  moduleFileExtensions: ["ts", "js", "json"],
+  testTimeout: 5000,
+  verbose: false,
+  clearMocks: true,
+  resetMocks: true,
+  restoreMocks: true,
+};
